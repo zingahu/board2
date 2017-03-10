@@ -24,7 +24,11 @@
 			String sql = "select * from board where idx = " + idx;
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-
+				request.setAttribute("idx", rs.getString("idx"));
+				request.setAttribute("writer", rs.getString("writer"));
+				request.setAttribute("regdate", rs.getString("regdate"));
+				request.setAttribute("count", rs.getString("count"));
+				request.setAttribute("content", rs.getString("content"));
 			}
 		
 			con.close();
