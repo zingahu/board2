@@ -24,36 +24,7 @@
 			String sql = "select * from board where idx = " + idx;
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-		%>	
-		
-		
-<body>
-	<h1>게시글 조회</h1>
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<td><%=rs.getString("idx") %></td>
-			<th>작성자</th>
-			<td><%=rs.getString("writer") %></td>
-			<th>날짜</th>
-			<td><%=rs.getString("regdate") %></td>
-			<th>조회수</th>
-			<td><%=rs.getString("count") %></td>
-		</tr>
-		<tr>
-			<th colspan="2">제목</th>
-			<td colspan="6"><%=rs.getString("title") %></td>
-		</tr>
-		<tr>
-			<th colspan="2">내용</th>
-			<td colspan="6"><%=rs.getString("content") %></td>
-		</tr>
-				
-	</table>
-	<a href="delete.jsp?idx=<%=rs.getString("idx")%>">게시글삭제</a>
-	<a href="index.jsp">목록으로</a>
 
-<%
 			}
 		
 			con.close();
@@ -62,6 +33,33 @@
 			out.println(e.getMessage());
 			e.printStackTrace();
 		}
-%>
+%>		
+		
+<body>
+	<h1>게시글 조회</h1>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<td>${idx }</td>
+			<th>작성자</th>
+			<td>${writer}</td>
+			<th>날짜</th>
+			<td>${regdate}</td>
+			<th>조회수</th>
+			<td>${count") %></td>
+		</tr>
+		<tr>
+			<th colspan="2">제목</th>
+			<td colspan="6">${title }</td>
+		</tr>
+		<tr>
+			<th colspan="2">내용</th>
+			<td colspan="6">${content}</td>
+		</tr>
+				
+	</table>
+	<a href="delete.jsp?idx=${idx}">게시글삭제</a>
+	<a href="index.jsp">목록으로</a>
+
 </body>
 </html>
